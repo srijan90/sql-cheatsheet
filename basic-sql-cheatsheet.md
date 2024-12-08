@@ -297,45 +297,6 @@ CREATE TABLE employees (
     manager_id INT
 );
 ```
-## CREATE TABLE: Create Table with Subqueries
-### 1. Create a Table with All Data
-``` SQL
-CREATE TABLE employees_backup AS
-SELECT *
-FROM employees;
-```
-### 2. Create a Table with Filtered Data
-```sql
-CREATE TABLE active_employees AS
-SELECT employee_id, name, department_id, salary
-FROM employees
-WHERE status = 'ACTIVE';
-```
-### 3. Create a Table with Joined Data
-```sql
-CREATE TABLE employee_department AS
-SELECT e.employee_id, e.name, e.salary, d.department_name
-FROM employees e
-JOIN departments d ON e.department_id = d.department_id;
-```
-### 4. Create a Table with Nested Subquery Data
-```sql
-CREATE TABLE high_earning_employees AS
-SELECT employee_id, name, salary
-FROM employees
-WHERE salary > (
-    SELECT AVG(salary)
-    FROM employees
-);
-```
-### 5. Create a Table with Combined Concepts (Filtered + Aggregated + Join)
-```sql
-CREATE TABLE active_department_summary AS
-SELECT d.department_id, d.department_name, COUNT(e.employee_id) AS total_employees, AVG(e.salary) AS avg_salary
-FROM departments d
-JOIN employees e ON d.department_id = e.department_id
-WHERE e.status = 'ACTIVE'
-GROUP BY d.department_id, d.department_name;
-```
+
 
 This SQL cheat sheet provides essential SQL commands for quick reference. Feel free to add more examples.
