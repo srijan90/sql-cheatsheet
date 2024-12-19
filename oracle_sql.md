@@ -3,13 +3,10 @@
 SELECT * FROM departments
 ```
 
+**Fetch all Data:**
 ```sql
 SELECT * FROM departments
 ```
-
-**Fetch all Data:**
-```sql
-SELECT * FROM departments```
 
 
 **Fetch data from specific columns:**
@@ -71,20 +68,12 @@ SELECT department_id FROM employees
 SELECT DISTINCT department_id FROM employees
 ```
 
-**Displaying Table Structure:**
-```sql
-DESC[RIBE] tablename
-```
-
 **Displaying Table Structure (Example):**
 ```sql
 DESCRIBE employees
 ```
 
 **Limiting the Rows That Are Selected:**
-```sql
-SELECT *|{[DISTINCT] column|expression[alias],...} FROM table [WHERE condition(s)]
-```
 
 **Using the WHERE Clause:**
 ```sql
@@ -147,15 +136,15 @@ SELECT last_name, job_id, department_id, hire_date FROM employees ORDER BY hire_
 
 **Sorting:**
 - Sorting in descending order:
-  ```sql
+```sql
 SELECT last_name, job_id, department_id, hire_date FROM employees ORDER BY hire_date DESC
 ```
 - Sorting by column alias:
-  ```sql
+```sql
 SELECT employee_id, last_name, salary*12 annsal FROM employees ORDER BY annsal
 ```
 - Sorting by multiple columns:
-  ```sql
+```sql
 SELECT last_name, department_id, salary FROM employees ORDER BY department_id, salary DESC
 ```
 
@@ -179,22 +168,9 @@ SELECT employee_id, last_name, job_id, &column_name FROM employees WHERE &condit
 SELECT employee_id, last_name, job_id, &&column_name FROM employees ORDER BY &column_name
 ```
 
-**Using the iSQL*Plus DEFINE Command:**
-```sql
-DEFINE employee_num = 200
-```
-```sql
-SELECT employee_id, last_name, salary, department_id FROM employees WHERE employee_id = &employee_num
-```
-```sql
-UNDEFINE employee_num
-```
-
 **Using the VERIFY Command:**
 ```sql
 SET VERIFY ON
-```
-```sql
 SELECT employee_id, last_name, salary, department_id FROM employees WHERE employee_id = &employee_num
 ```
 
@@ -303,17 +279,15 @@ SELECT MIN(hire_date), MAX(hire_date) FROM employees
 ```
 
 **Using the COUNT Function:**
+
+- COUNT(*) returns the number of rows in a table:
 ```sql
-COUNT(*) returns the number of rows in a table:`
-  ```sql
 SELECT COUNT(*) FROM employees WHERE department_id = 50
 ```
+- COUNT(expr) returns the number of rows with non-null values for the expr:
 ```sql
-COUNT(expr) returns the number of rows with non-null values for the expr:`
-  ```sql
 SELECT COUNT(commission_pct) FROM employees WHERE department_id = 80
 ```
-
 **Using the DISTINCT Keyword:**
 ```sql
 SELECT COUNT(DISTINCT department_id) FROM employees
@@ -321,11 +295,11 @@ SELECT COUNT(DISTINCT department_id) FROM employees
 
 **Group Functions and Null Values:**
 - Group functions ignore null values in the column:
-  ```sql
+```sql
 SELECT AVG(commission_pct) FROM employees
 ```
 - The NVL function forces group functions to include null values:
-  ```sql
+```sql
 SELECT AVG(NVL(commission_pct, 0)) FROM employees
 ```
 
@@ -471,23 +445,12 @@ SELECT employee_id, job_id FROM employees MINUS SELECT employee_id, job_id FROM 
 Produce an English sentence using two UNION operators.
 ```sql
 COLUMN a_dummy NOPRINT
-```
-```sql
+
 SELECT 'sing' AS "My dream", 3 a_dummy FROM dual
-```
-```sql
 UNION
-```
-```sql
 SELECT 'I''d like to teach', 1 a_dummy FROM dual
-```
-```sql
 UNION
-```
-```sql
 SELECT 'the world to', 2 a_dummy FROM dual
-```
-```sql
 ORDER BY a_dummy
 ```
 
@@ -563,14 +526,12 @@ SELECT employee_id, last_name, email, hire_date, job_id, salary, department_id F
 
 **Committing Data:**
 ```sql
-DELETE FROM employees WHERE employee_id = 99999; 1 row deleted.`
-```sql
-INSERT INTO departments VALUES (290, 'Corporate Tax', NULL, 1700); 1 row created.`
-```sql
-COMMIT; Commit complete.`
-
+DELETE FROM employees WHERE employee_id = 99999; 1 row deleted.
+INSERT INTO departments VALUES (290, 'Corporate Tax', NULL, 1700); 1 row created.
+COMMIT;
+```
 **State of the Data After ROLLBACK:**
 ```sql
-DELETE FROM copy_emp; 22 rows deleted.`
-```sql
-ROLLBACK; Rollback complete.`
+DELETE FROM copy_emp; 22 rows deleted.
+ROLLBACK; Rollback complete.
+```
