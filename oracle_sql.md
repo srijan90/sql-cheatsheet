@@ -3,12 +3,6 @@
 SELECT * FROM departments
 ```
 
-**Fetch all Data:**
-```sql
-SELECT * FROM departments
-```
-
-
 **Fetch data from specific columns:**
 ```sql
 SELECT department_id, location_id FROM departments
