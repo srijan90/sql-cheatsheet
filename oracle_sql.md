@@ -49,11 +49,6 @@ SELECT last_name||job_id AS "Employees" FROM employees
 SELECT last_name ||' is a '||job_id AS "Employee Details" FROM employees
 ```
 
-**Alternative Quote (q) Operator:**
-```sql
-SELECT department_name || q'[, it's assigned Manager Id: ]' || manager_id AS "Department and Manager" FROM departments
-```
-
 **Duplicate Rows:**
 ```sql
 SELECT department_id FROM employees
